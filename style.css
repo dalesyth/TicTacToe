@@ -14,34 +14,53 @@ body {
 }
 
 .container {
-  height: 100%;
-  width: 80%;
+  border: 10px solid turquoise;
+  border-radius: 10px;
+
+  height: 100vh;
+  width: 60%;
   margin: auto;
   display: flex;
   flex-direction: column;
+  background-color: gray;
 }
 
 .header {
   height: 15%;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   background: rgb(62, 15, 156);
   color: #fb009f;
 }
 
+.title{
+  
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 100%
+}
+
 #title {
   font-size: 50px;
-  margin-top: 1rem;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  height: 40%;
 }
 
 #restart-btn {
   font-family: inherit;
-  margin-top: 0.25rem;
-  margin-bottom: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  height: 30%;
   padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
   outline: none;
   font-size: 0.75rem;
@@ -49,10 +68,29 @@ body {
 }
 
 #winner {
-  height: 15%;
+  /* height: 15%; */
+  height: fit-content;
   width: 60%;
   border-radius: 20px;
-  margin: auto;
+  position: relative;
+  top: 300px;
+  left: 175px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color: white;
+  font-size: 50px;
+}
+
+#message {
+  /* height: 15%; */
+  height: fit-content;
+  width: 60%;
+  border-radius: 20px;
+  position: relative;
+  top: 300px;
+  left: 175px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,6 +107,7 @@ body {
   margin: auto;
   display: grid;
   grid-template-columns: repeat(3, auto);
+
   box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.5);
 }
 

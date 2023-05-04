@@ -1,17 +1,24 @@
 const square = document.getElementsByClassName("square");
 const restartButton = document.getElementById("restart-btn");
-const winMessage = document.querySelector(".banner");
+const bannerMessage = document.querySelector(".banner");
 restartButton.addEventListener("click", restartGame);
 let gameOver = true;
 let currentPlayer = "X";
 
 function startGame() {
   gameOver = false;
+  // numberOfPlayers();
   for (let i = 0; i < square.length; i++) {
     square[i].innerHTML = "";
     square[i].addEventListener("click", updateSquare);
   }
 }
+
+// function numberOfPlayers() {
+//   console.log("hello");
+//   bannerMessage.setAttribute("id", "message");
+//   bannerMessage.innerHTML = `Enter 1 or 2 players:`;
+// }
 
 function updateSquare(event) {
   if (event.target.innerHTML === "" && gameOver === false) {
@@ -32,64 +39,64 @@ function checkWinConditions() {
     squaresArray[0] === squaresArray[1] &&
     squaresArray[1] === squaresArray[2]
   ) {
-    winMessage.setAttribute("id", "winner");
-    winMessage.innerHTML = `${currentPlayer} has won!`;
+    bannerMessage.setAttribute("id", "winner");
+    bannerMessage.innerHTML = `${currentPlayer} has won!`;
     gameOver = true;
   } else if (
     squaresArray[3] != "" &&
     squaresArray[3] === squaresArray[4] &&
     squaresArray[4] === squaresArray[5]
   ) {
-    winMessage.setAttribute("id", "winner");
-    winMessage.innerHTML = `${currentPlayer} has won!`;
+    bannerMessage.setAttribute("id", "winner");
+    bannerMessage.innerHTML = `${currentPlayer} has won!`;
     gameOver = true;
   } else if (
     squaresArray[6] != "" &&
     squaresArray[6] === squaresArray[7] &&
     squaresArray[7] === squaresArray[8]
   ) {
-    winMessage.setAttribute("id", "winner");
-    winMessage.innerHTML = `${currentPlayer} has won!`;
+    bannerMessage.setAttribute("id", "winner");
+    bannerMessage.innerHTML = `${currentPlayer} has won!`;
     gameOver = true;
   } else if (
     squaresArray[0] != "" &&
     squaresArray[0] === squaresArray[3] &&
     squaresArray[3] === squaresArray[6]
   ) {
-    winMessage.setAttribute("id", "winner");
-    winMessage.innerHTML = `${currentPlayer} has won!`;
+    bannerMessage.setAttribute("id", "winner");
+    bannerMessage.innerHTML = `${currentPlayer} has won!`;
     gameOver = true;
   } else if (
     squaresArray[1] != "" &&
     squaresArray[1] === squaresArray[4] &&
     squaresArray[4] === squaresArray[7]
   ) {
-    winMessage.setAttribute("id", "winner");
-    winMessage.innerHTML = `${currentPlayer} has won!`;
+    bannerMessage.setAttribute("id", "winner");
+    bannerMessage.innerHTML = `${currentPlayer} has won!`;
     gameOver = true;
   } else if (
     squaresArray[2] != "" &&
     squaresArray[2] === squaresArray[5] &&
     squaresArray[5] === squaresArray[8]
   ) {
-    winMessage.setAttribute("id", "winner");
-    winMessage.innerHTML = `${currentPlayer} has won!`;
+    bannerMessage.setAttribute("id", "winner");
+    bannerMessage.innerHTML = `${currentPlayer} has won!`;
     gameOver = true;
   } else if (
     squaresArray[0] != "" &&
     squaresArray[0] === squaresArray[4] &&
     squaresArray[4] === squaresArray[8]
   ) {
-    winMessage.setAttribute("id", "winner");
-    winMessage.innerHTML = `${currentPlayer} has won!`;
+    bannerMessage.setAttribute("id", "winner");
+    bannerMessage.innerHTML = `${currentPlayer} has won!`;
     gameOver = true;
   } else if (
     squaresArray[6] != "" &&
     squaresArray[6] === squaresArray[4] &&
     squaresArray[4] === squaresArray[2]
   ) {
-    winMessage.setAttribute("id", "winner");
-    winMessage.innerHTML = `${currentPlayer} has won!`;
+    bannerMessage.setAttribute("id", "winner");
+    bannerMessage.innerHTML = `${currentPlayer} has won!`;
     gameOver = true;
   } else if (
     squaresArray[0] != "" &&
@@ -102,8 +109,8 @@ function checkWinConditions() {
     squaresArray[7] != "" &&
     squaresArray[8] != ""
   ) {
-    winMessage.setAttribute("id", "winner");
-    winMessage.innerHTML = `It's a draw!`;
+    bannerMessage.setAttribute("id", "winner");
+    bannerMessage.innerHTML = `It's a draw!`;
     gameOver = true;
   }
 }
@@ -121,8 +128,8 @@ function restartGame(event) {
   for (let i = 0; i < square.length; i++) {
     square[i].innerHTML = "";
   }
-  winMessage.removeAttribute("id", "winner");
-  winMessage.innerHTML = "";
+  bannerMessage.removeAttribute("id", "winner");
+  bannerMessage.innerHTML = "";
   gameOver = false;
 }
 
