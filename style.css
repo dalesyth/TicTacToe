@@ -41,6 +41,7 @@ body {
   display: flex;
   justify-content: left;
   padding-left: 10px;
+  font-size: 30px;
 }
 
 .playerTwoBox {
@@ -48,6 +49,7 @@ body {
   display: flex;
   justify-content: right;
   padding-right: 10px;
+  font-size: 30px;
 }
 
 .title {
@@ -120,6 +122,11 @@ body {
   width: 50px;
   display: flex;
   
+}
+
+.input-name{
+  width: 50px;
+  display: flex;
 }
 
 #close-btn {

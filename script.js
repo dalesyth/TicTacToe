@@ -1,6 +1,10 @@
 const square = document.getElementsByClassName("square");
 const restartButton = document.getElementById("restart-btn");
 const bannerMessage = document.querySelector(".banner");
+const inputNum = document.createElement("input");
+const closeButton = document.createElement("button");
+const inputNameOne = document.createElement("input");
+const inputNameTwo = document.createElement("input");
 let playerOne = document.getElementById("playerOneName");
 let playerTwo = document.getElementById("playerTwoName");
 restartButton.addEventListener("click", restartGame);
@@ -21,27 +25,21 @@ function startGame() {
 function numberOfPlayers() {
   bannerMessage.setAttribute("id", "numPlayers");
   bannerMessage.innerHTML = `Enter 1 or 2 players: `;
-  const inputPlayer = document.createElement("input");
-  const closeButton = document.createElement("button");
-  bannerMessage.appendChild(inputPlayer).setAttribute("id", "input-num");
+  bannerMessage.appendChild(inputNum).setAttribute("id", "input-num");
   bannerMessage.appendChild(closeButton).setAttribute("id", "close-btn");
   closeButton.innerHTML = "CLOSE";
   closeButton.addEventListener("click", () => {
     bannerMessage.style.display = "none";
   });
 
-  inputPlayer.addEventListener("keypress", function (e) {
+  inputNum.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
-      numPlayers = Number(inputPlayer.value);
-      // console.log(typeof numPlayers)
-      console.log(typeof numPlayers);
-      console.log(numPlayers);
+      numPlayers = Number(inputNum.value);
 
       if (numPlayers !== 1 && numPlayers !== 2) {
         alert("Invalid number of players");
-      } else if (numPlayers === 1 || numPlayers === 2) {
+      } else {
         enterPlayerNames();
-        bannerMessage.style.display = "none";
       }
     }
   });
@@ -49,9 +47,51 @@ function numberOfPlayers() {
 
 function enterPlayerNames() {
   if (numPlayers === 1) {
-    alert("you have reached enterPlayerNames, and there is 1 player");
+    playerTwo.innerHTML = "Computer";
+
+    bannerMessage.setAttribute("id", "numPlayers");
+    bannerMessage.innerHTML = "Enter your name: ";
+    bannerMessage.appendChild(inputNameOne).setAttribute("class", "input-name");
+    bannerMessage.appendChild(closeButton).setAttribute("id", "close-btn");
+    closeButton.innerHTML = "CLOSE";
+    closeButton.addEventListener("click", () => {
+      bannerMessage.style.display = "none";
+    });
+
+    inputNameOne.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        playerOne.innerHTML = inputNameOne.value;
+        bannerMessage.style.display = "none";
+      }
+    });
   } else if (numPlayers === 2) {
-    alert("you have reached enterPlayerNames, and there are 2 players");
+    bannerMessage.setAttribute("id", "numPlayers");
+    bannerMessage.innerHTML = "Enter player names: ";
+    bannerMessage.appendChild(inputNameOne).setAttribute("class", "input-name");
+    bannerMessage.appendChild(inputNameTwo).setAttribute("class", "input-name");
+    bannerMessage.appendChild(closeButton).setAttribute("id", "close-btn");
+    closeButton.innerHTML = "CLOSE";
+    closeButton.addEventListener("click", () => {
+      bannerMessage.style.display = "none";
+    });
+
+    inputNameOne.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        playerOne.innerHTML = inputNameOne.value;
+        playerTwo.innerHTML = inputNameTwo.value;
+
+        bannerMessage.style.display = "none";
+      }
+    });
+
+    inputNameTwo.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        playerOne.innerHTML = inputNameOne.value;
+        playerTwo.innerHTML = inputNameTwo.value;
+
+        bannerMessage.style.display = "none";
+      }
+    });
   }
 }
 
@@ -175,6 +215,9 @@ function restartGame(event) {
 
   bannerMessage.removeAttribute("id", "winner");
   bannerMessage.innerHTML = "";
+  playerOne.innerHTML = " ";
+  playerTwo.innerHTML = " ";
+  inputNum.value = "";
 
   gameOver = false;
   numberOfPlayers();
