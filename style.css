@@ -22,7 +22,7 @@ body {
   margin: auto;
   display: flex;
   flex-direction: column;
-  
+
   align-items: center;
   background-color: gray;
 }
@@ -33,27 +33,12 @@ body {
   height: 15vh;
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
- 
+
+  justify-content: center;
+  align-items: center;
+
   background: rgb(62, 15, 156);
   color: #fb009f;
-}
-
-.playerOneBox {
-  width: 20%;
-  display: flex;
-  justify-content: left;
-  padding-left: 10px;
-  font-size: 30px;
-}
-
-.playerTwoBox {
-  width: 20%;
-  display: flex;
-  justify-content: right;
-  padding-right: 10px;
-  font-size: 30px;
 }
 
 .title {
@@ -67,7 +52,7 @@ body {
 
 #title {
   font-size: 7vh;
-  
+
   height: 6vh;
   margin-bottom: 2vh;
 }
@@ -88,7 +73,6 @@ body {
 }
 
 #winner {
-  
   font-size: 2rem;
   width: 75%;
   background-color: red;
@@ -102,8 +86,6 @@ body {
 }
 
 #numPlayers {
-  
-
   width: 75%;
   background-color: red;
   color: white;
@@ -115,13 +97,24 @@ body {
   box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.5);
 }
 
+#playerBanner {
+  width: 75%;
+  background-color: red;
+  color: white;
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.5);
+}
+
 #input-num {
   width: 8vw;
   display: flex;
-  
 }
 
-.input-name{
+.input-name {
   width: 8vw;
   display: flex;
 }
@@ -139,28 +132,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  
-;}
+}
 
 .gameboard {
-  
-
   background-color: yellow;
   display: grid;
   grid-template-rows: repeat(3, 10vw);
   grid-template-columns: repeat(3, 10vw);
   font-family: inherit;
   box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.5);
-  
-  
-
-
 }
 
 .square {
-  
-
   border: 1px solid black;
   font-size: 8vw;
   cursor: pointer;
@@ -171,75 +154,69 @@ body {
   color: red;
 }
 
-@media (max-width: 500px){
-
-  .container{
-    width: 75%
+@media (max-width: 500px) {
+  .container {
+    width: 75%;
   }
 
   #title {
-  font-size: 6vh;
-  
-  height: 3vh;
-  margin-bottom: 2vh;
-}
+    font-size: 6vh;
 
-#restart-btn {
-  width: 12vw;
-  font-size: .5rem;
-}
+    height: 3vh;
+    margin-bottom: 2vh;
+  }
 
-  .gameboard{
+  #restart-btn {
+    width: 12vw;
+    font-size: 0.5rem;
+  }
+
+  .gameboard {
     grid-template-rows: repeat(3, 20vw);
     grid-template-columns: repeat(3, 20vw);
   }
 }
 
-@media (max-width: 450px){
-
-  .container{
-    width: 75%
+@media (max-width: 450px) {
+  .container {
+    width: 75%;
   }
 
   #title {
-  font-size: 1.3rem;
-  
-  
-  margin-bottom: .5rem;
-}
+    font-size: 1.3rem;
 
-#restart-btn {
-  width: 4rem;
-  font-size: .5rem;
-}
+    margin-bottom: 0.5rem;
+  }
 
-  .gameboard{
+  #restart-btn {
+    width: 4rem;
+    font-size: 0.5rem;
+  }
+
+  .gameboard {
     grid-template-rows: repeat(3, 20vw);
     grid-template-columns: repeat(3, 20vw);
   }
 }
 
-@media (max-width: 300px){
-
-  .container{
-    width: 75%
+@media (max-width: 300px) {
+  .container {
+    width: 75%;
   }
 
   #title {
-  font-size: .95rem;
-  
-  /* height: 1rem; */
-  margin-bottom: .5rem;
-}
+    font-size: 0.95rem;
 
-#restart-btn {
-  width: 3rem;
-  font-size: .25;
-}
+    margin-bottom: 0.5rem;
+  }
 
-  .gameboard{
+  #restart-btn {
+    width: 3rem;
+    font-size: 0.25;
+  }
+
+  .gameboard {
     grid-template-rows: repeat(3, 20vw);
     grid-template-columns: repeat(3, 20vw);
   }
 }
-

@@ -58,9 +58,9 @@ function enterPlayerNames() {
 
     inputNameOne.addEventListener("keypress", function (e) {
       if (e.key === "Enter") {
-        playerOne.innerHTML = inputNameOne.value;
-        playerTwo.innerHTML = "Computer";
-        bannerMessage.style.display = "none";
+        playerOne = inputNameOne.value.toUpperCase();
+        bannerMessage.setAttribute("id", "playerBanner");
+        bannerMessage.innerHTML = `${playerOne} VS. COMPUTER!`;
       }
     });
   } else if (numPlayers === 2) {
@@ -76,27 +76,25 @@ function enterPlayerNames() {
 
     inputNameOne.addEventListener("keypress", function (e) {
       if (e.key === "Enter") {
-        playerOne.innerHTML = inputNameOne.value;
-        playerTwo.innerHTML = inputNameTwo.value;
-
-        bannerMessage.style.display = "none";
+        playerOne = inputNameOne.value.toUpperCase();
+        playerTwo = inputNameTwo.value.toUpperCase();
+        bannerMessage.setAttribute("id", "playerBanner");
+        bannerMessage.innerHTML = `${playerOne} VS. ${playerTwo}!`;
       }
     });
 
     inputNameTwo.addEventListener("keypress", function (e) {
       if (e.key === "Enter") {
-        playerOne.innerHTML = inputNameOne.value;
-        playerTwo.innerHTML = inputNameTwo.value;
-
-        bannerMessage.style.display = "none";
+        playerOne = inputNameOne.value.toUpperCase();
+        playerTwo = inputNameTwo.value.toUpperCase();
+        bannerMessage.setAttribute("id", "playerBanner");
+        bannerMessage.innerHTML = `${playerOne} VS. ${playerTwo}!`;
       }
     });
   }
 }
 
 function updateSquare(event) {
-
-
   if (numPlayers === 2) {
     if (event.target.innerHTML === "" && gameOver === false) {
       event.target.innerHTML = currentPlayer;
@@ -104,7 +102,11 @@ function updateSquare(event) {
       switchPlayer();
     }
   } else {
-    if (currentPlayer === "X" && event.target.innerHTML === "" && gameOver === false) {
+    if (
+      currentPlayer === "X" &&
+      event.target.innerHTML === "" &&
+      gameOver === false
+    ) {
       event.target.innerHTML = currentPlayer;
       checkWinConditions();
       computerTurn();
@@ -113,23 +115,19 @@ function updateSquare(event) {
 }
 
 function computerTurn() {
-  currentPlayer = "O"
+  currentPlayer = "O";
   for (let i = 0; i < square.length; i++) {
-   
     console.log(square[i]);
     if (square[i].innerHTML === "" && gameOver === false) {
-      
       square[i].innerHTML = "O";
       checkWinConditions();
       switchPlayer();
       break;
-      
     }
   }
 }
 
 function checkWinConditions() {
-  
   let squaresArray = [];
   for (let i = 0; i < square.length; i++) {
     squaresArray.push(square[i].innerHTML);
@@ -226,7 +224,6 @@ function checkWinConditions() {
 }
 
 function switchPlayer() {
-  
   if (currentPlayer === "O") {
     currentPlayer = "X";
   } else {
@@ -242,8 +239,7 @@ function restartGame(event) {
 
   bannerMessage.removeAttribute("id", "winner");
   bannerMessage.innerHTML = "";
-  playerOne.innerHTML = " ";
-  playerTwo.innerHTML = " ";
+
   inputNum.value = "";
   inputNameOne.value = "";
   inputNameTwo.value = "";
