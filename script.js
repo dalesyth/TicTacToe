@@ -95,14 +95,41 @@ function enterPlayerNames() {
 }
 
 function updateSquare(event) {
-  if (event.target.innerHTML === "" && gameOver === false) {
-    event.target.innerHTML = currentPlayer;
-    checkWinConditions();
-    switchPlayer();
+
+
+  if (numPlayers === 2) {
+    if (event.target.innerHTML === "" && gameOver === false) {
+      event.target.innerHTML = currentPlayer;
+      checkWinConditions();
+      switchPlayer();
+    }
+  } else {
+    if (currentPlayer === "X" && event.target.innerHTML === "" && gameOver === false) {
+      event.target.innerHTML = currentPlayer;
+      checkWinConditions();
+      computerTurn();
+    }
+  }
+}
+
+function computerTurn() {
+  currentPlayer = "O"
+  for (let i = 0; i < square.length; i++) {
+   
+    console.log(square[i]);
+    if (square[i].innerHTML === "" && gameOver === false) {
+      
+      square[i].innerHTML = "O";
+      checkWinConditions();
+      switchPlayer();
+      break;
+      
+    }
   }
 }
 
 function checkWinConditions() {
+  
   let squaresArray = [];
   for (let i = 0; i < square.length; i++) {
     squaresArray.push(square[i].innerHTML);
@@ -199,6 +226,7 @@ function checkWinConditions() {
 }
 
 function switchPlayer() {
+  
   if (currentPlayer === "O") {
     currentPlayer = "X";
   } else {
