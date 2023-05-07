@@ -47,8 +47,6 @@ function numberOfPlayers() {
 
 function enterPlayerNames() {
   if (numPlayers === 1) {
-    playerTwo.innerHTML = "Computer";
-
     bannerMessage.setAttribute("id", "numPlayers");
     bannerMessage.innerHTML = "Enter your name: ";
     bannerMessage.appendChild(inputNameOne).setAttribute("class", "input-name");
@@ -61,6 +59,7 @@ function enterPlayerNames() {
     inputNameOne.addEventListener("keypress", function (e) {
       if (e.key === "Enter") {
         playerOne.innerHTML = inputNameOne.value;
+        playerTwo.innerHTML = "Computer";
         bannerMessage.style.display = "none";
       }
     });
@@ -218,6 +217,8 @@ function restartGame(event) {
   playerOne.innerHTML = " ";
   playerTwo.innerHTML = " ";
   inputNum.value = "";
+  inputNameOne.value = "";
+  inputNameTwo.value = "";
 
   gameOver = false;
   numberOfPlayers();

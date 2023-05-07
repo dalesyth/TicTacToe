@@ -22,16 +22,20 @@ body {
   margin: auto;
   display: flex;
   flex-direction: column;
+  
+  align-items: center;
   background-color: gray;
 }
 
 .header {
-  height: 15%;
+  border: 1px solid black;
+
+  height: 15vh;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+ 
   background: rgb(62, 15, 156);
   color: #fb009f;
 }
@@ -62,10 +66,10 @@ body {
 }
 
 #title {
-  font-size: 50px;
-  margin-top: 2px;
-  margin-bottom: 5px;
-  height: 40%;
+  font-size: 7vh;
+  
+  height: 6vh;
+  margin-bottom: 2vh;
 }
 
 #restart-btn {
@@ -73,103 +77,169 @@ body {
   margin-top: 20px;
   margin-bottom: 10px;
   height: 30%;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   outline: none;
-  font-size: 0.75rem;
+  font-size: 2vh;
   cursor: pointer;
 }
 
 #winner {
-  /* height: 15%; */
-  height: fit-content;
-  width: 60%;
-  border-radius: 20px;
-  position: relative;
-  top: 300px;
-  left: 175px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
+  font-size: 2rem;
+  width: 75%;
   background-color: red;
   color: white;
-  font-size: 50px;
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
   box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.5);
 }
 
 #numPlayers {
-  /* height: 15%; */
-  height: fit-content;
-  width: 60%;
-  border-radius: 20px;
-  position: relative;
-  top: 300px;
-  left: 175px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
+  
+
+  width: 75%;
   background-color: red;
   color: white;
-  font-size: 20px;
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
   box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.5);
 }
 
 #input-num {
-  width: 50px;
+  width: 8vw;
   display: flex;
   
 }
 
 .input-name{
-  width: 50px;
+  width: 8vw;
   display: flex;
 }
 
 #close-btn {
-  width: 50px;
-  height: 20px;
+  width: 8vw;
+  height: 3vh;
   font-family: inherit;
-}
-
-.gameboard {
-  background-color: yellow;
-  height: 600px;
-  width: 600px;
-
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-
-  box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.5);
-}
-
-.square {
-  height: 200px;
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 8rem;
-
-  color: red;
   cursor: pointer;
 }
 
-.row1 {
-  border-bottom: 2px solid black;
+.gamecontainer {
+  border: 1px solid black;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+;}
+
+.gameboard {
+  
+
+  background-color: yellow;
+  display: grid;
+  grid-template-rows: repeat(3, 10vw);
+  grid-template-columns: repeat(3, 10vw);
+  font-family: inherit;
+  box-shadow: 5px 7px 5px rgba(0, 0, 0, 0.5);
+  
+  
+
+
 }
 
-.row2 {
-  border-bottom: 2px solid black;
+.square {
+  
+
+  border: 1px solid black;
+  font-size: 8vw;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  color: red;
 }
 
-#one,
-#four,
-#seven {
-  border-right: 2px solid black;
-  border-left: 2px solid black;
+@media (max-width: 500px){
+
+  .container{
+    width: 75%
+  }
+
+  #title {
+  font-size: 6vh;
+  
+  height: 3vh;
+  margin-bottom: 2vh;
 }
+
+#restart-btn {
+  width: 12vw;
+  font-size: .5rem;
+}
+
+  .gameboard{
+    grid-template-rows: repeat(3, 20vw);
+    grid-template-columns: repeat(3, 20vw);
+  }
+}
+
+@media (max-width: 450px){
+
+  .container{
+    width: 75%
+  }
+
+  #title {
+  font-size: 1.3rem;
+  
+  
+  margin-bottom: .5rem;
+}
+
+#restart-btn {
+  width: 4rem;
+  font-size: .5rem;
+}
+
+  .gameboard{
+    grid-template-rows: repeat(3, 20vw);
+    grid-template-columns: repeat(3, 20vw);
+  }
+}
+
+@media (max-width: 300px){
+
+  .container{
+    width: 75%
+  }
+
+  #title {
+  font-size: .95rem;
+  
+  /* height: 1rem; */
+  margin-bottom: .5rem;
+}
+
+#restart-btn {
+  width: 3rem;
+  font-size: .25;
+}
+
+  .gameboard{
+    grid-template-rows: repeat(3, 20vw);
+    grid-template-columns: repeat(3, 20vw);
+  }
+}
+
