@@ -117,7 +117,6 @@ function updateSquare(event) {
 function computerTurn() {
   currentPlayer = "O";
   for (let i = 0; i < square.length; i++) {
-    console.log(square[i]);
     if (square[i].innerHTML === "" && gameOver === false) {
       square[i].innerHTML = "O";
       checkWinConditions();
